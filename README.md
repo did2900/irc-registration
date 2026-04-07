@@ -1,0 +1,2 @@
+# irc-registration
+applet
