@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inscription IRC</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Page d'inscription</h1>
+    <p>Remplissez votre pseudo, âge, ville et l'adresse IP du serveur pour vous connecter.</p>
+
+    <form id="registration-form">
+      <label for="pseudo">Pseudo</label>
+      <input type="text" id="pseudo" name="pseudo" placeholder="Votre pseudo" required />
+
+      <label for="age">Âge</label>
+      <input type="number" id="age" name="age" placeholder="Votre âge" min="1" required />
+
+      <label for="city">Ville</label>
+      <input type="text" id="city" name="city" placeholder="Votre ville" required />
+
+      <label for="server-ip">Adresse IP du serveur</label>
+      <input type="text" id="server-ip" name="server-ip" value="51.81.32.159" required />
+
+      <label for="server-port">Port du serveur</label>
+      <input type="number" id="server-port" name="server-port" value="6667" min="1" max="65535" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="votre@exemple.com" required />
+
+      <button type="submit">Se connecter</button>
+    </form>
+
+    <div id="confirmation" class="hidden">
+      <h2>Connexion prête</h2>
+      <p id="confirmation-text">Merci ! Vos informations ont été enregistrées.</p>
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById('registration-form');
+    const confirmation = document.getElementById('confirmation');
+    const confirmationText = document.getElementById('confirmation-text');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const pseudo = document.getElementById('pseudo').value.trim();
+      const age = document.getElementById('age').value.trim();
+      const city = document.getElementById('city').value.trim();
+      const serverIp = document.getElementById('server-ip').value.trim();
+      const serverPort = document.getElementById('server-port').value.trim();
+
+      confirmationText.textContent = `Bonjour ${pseudo} (${age} ans, ${city}). Vous pouvez vous connecter au serveur ${serverIp}:${serverPort}.`;
+
+      form.classList.add('hidden');
+      confirmation.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
