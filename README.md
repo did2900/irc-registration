@@ -12,6 +12,15 @@ Page d'inscription simple pour IRC.
 
 Après avoir poussé sur la branche `main`, GitHub Actions publiera automatiquement le site sur GitHub Pages.
 
-L’URL devrait être :
+Le domaine personnalisé est configuré dans le fichier `CNAME` :
 
-`https://did2900.github.io/irc-registration/`
+` tchaat.org `
+
+Pour que cela fonctionne, ajoutez ces enregistrements DNS chez votre fournisseur de domaine :
+
+- type `A` vers `185.199.108.153`
+- type `A` vers `185.199.109.153`
+- type `A` vers `185.199.110.153`
+- type `A` vers `185.199.111.153`
+
+Ensuite, GitHub Pages servira votre site depuis `https://tchaat.org`.
